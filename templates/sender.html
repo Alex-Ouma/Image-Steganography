@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Send Secure Email</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body class="sender">
+    <div class="sender-container">
+        <h1>Send Secure Email</h1>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <p class="flash {{ category }}">{{ message }}</p>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        <form method="POST" enctype="multipart/form-data">
+            <div class="handwritten-field">
+                <label for="from_email" class="handwritten-label">From</label>
+                <input type="email" id="from_email" name="from_email" required placeholder="Your email address" class="handwritten-input">
+            </div>
+
+            <div class="handwritten-field">
+                <label for="to_email" class="handwritten-label">To</label>
+                <input type="email" id="to_email" name="to_email" required placeholder="Recipient email address" class="handwritten-input">
+            </div>
+
+            <div class="handwritten-field">
+                <label for="subject" class="handwritten-label">Subject:</label>
+                <input type="text" id="subject" name="subject" required placeholder="Email Subject" class="handwritten-input">
+            </div>
+
+            <label for="message">Compose email:</label>
+            <textarea id="message" name="message" rows="4" required placeholder="Enter your message"></textarea><br><br>
+
+            <label for="link">Link (optional):</label>
+            <input type="url" id="link" name="link" placeholder="Enter a URL"><br><br>
+
+            <label for="file">File (optional):</label>
+            <input type="file" id="file" name="file"><br><br>
+
+            <label for="pin">PIN (5-32 chars, must include letters, numbers, and special chars):</label>
+            <div class="password-container">
+                <input type="password" id="pin" name="pin" minlength="5" maxlength="32" required>
+                <span class="toggle-password"><i class="fas fa-eye"></i></span>
+            </div><br><br>
+
+            <input type="submit" value="Send">
+        </form>
+    </div>
+    <script>
+        document.querySelectorAll('.toggle-password').forEach(item => {
+            item.addEventListener('click', function() {
+                const input = this.previousElementSibling;
+                const icon = this.querySelector('i');
+                if (input.type === 'password') {
+                    input.type = 'text';
+                    icon.classList.remove('fa-eye');
+                    icon.classList.add('fa-eye-slash');
+                } else {
+                    input.type = 'password';
+                    icon.classList.remove('fa-eye-slash');
+                    icon.classList.add('fa-eye');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

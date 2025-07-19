@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Receive Secure Email</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body class="receiver">
+    <div class="receiver-container">
+        <h1>Receive Secure Email</h1>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <p class="flash {{ category }}">{{ message }}</p>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <!-- Container for stego image or decrypted content -->
+        <div class="content-area">
+            {% if image %}
+                <img src="{{ url_for('static', filename='uploads/' + image) }}" alt="Stego Image">
+            {% elif from_email or to_email or subject or message or link or file_info %}
+                <h3>Decrypted Content</h3>
+                {% if from_email %}
+                    <p><strong>From:</strong> {{ from_email }}</p>
+                {% endif %}
+                {% if to_email %}
+                    <p><strong>To:</strong> {{ to_email }}</p>
+                {% endif %}
+                {% if subject %}
+                    <p><strong>Subject:</strong> {{ subject }}</p>
+                {% endif %}
+                {% if message %}
+                    <p><strong>Message:</strong> {{ message }}</p>
+                {% endif %}
+                {% if link %}
+                    <p><strong>Link:</strong> <a href="{{ link }}" target="_blank">{{ link }}</a></p>
+                {% endif %}
+                {% if file_info %}
+                    <p><strong>File:</strong> <a href="{{ url_for('static', filename='uploads/' + file_info[0]) }}" download>{{ file_info[0] }}</a></p>
+                {% endif %}
+            {% else %}
+                <p>No content available. Please decrypt with the correct PIN.</p>
+            {% endif %}
+        </div>
+
+        <form method="POST">
+            <label for="pin">PIN (5-32 chars, must include letters, numbers, and special chars):</label>
+            <div class="password-container">
+                <input type="password" id="pin" name="pin" minlength="5" maxlength="32" required>
+                <span class="toggle-password"><i class="fas fa-eye"></i></span>
+            </div><br>
+            <input type="submit" value="Decrypt">
+            <button type="submit" name="action" value="close" id="closeTab">Close Session</button>
+        </form>
+    </div>
+    <script>
+        document.querySelectorAll('.toggle-password').forEach(item => {
+            item.addEventListener('click', function() {
+                const input = this.previousElementSibling;
+                const icon = this.querySelector('i');
+                if (input.type === 'password') {
+                    input.type = 'text';
+                    icon.classList.remove('fa-eye');
+                    icon.classList.add('fa-eye-slash');
+                } else {
+                    input.type = 'password';
+                    icon.classList.remove('fa-eye-slash');
+                    icon.classList.add('fa-eye');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

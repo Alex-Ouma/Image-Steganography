@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <div class="signup-container">
+        <img src="{{ url_for('static', filename='shield.jpg') }}" alt="Security Shield" class="shield-image">
+        <div class="form-container">
+            <div class="sign-in-section">
+                <h2>Sign In</h2>
+                <p>Already have an account? <a href="{{ url_for('login') }}">Sign In</a></p>
+            </div>
+            <div class="sign-up-section">
+                <h2>Sign Up</h2>
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                        {% for category, message in messages %}
+                            <p class="flash {{ category }}">{{ message }}</p>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+                <form method="POST">
+                    <label>Username</label>
+                    <input type="text" name="username" placeholder="Type your username here" required><br>
+                    <label>Password</label>
+                    <div class="password-container">
+                        <input type="password" name="password" placeholder="Type your password here" required>
+                        <span class="toggle-password"><i class="fas fa-eye"></i></span>
+                    </div><br>
+                    <label>Retype The Password</label>
+                    <div class="password-container">
+                        <input type="password" name="retype_password" placeholder="Type your password here again" required>
+                        <span class="toggle-password"><i class="fas fa-eye"></i></span>
+                    </div><br>
+                    <label class="terms-label">
+                        <input type="checkbox" name="terms" required> I Agree Terms and Conditions
+                    </label><br>
+                    <input type="submit" value="Sign Up" class="sign-up-button">
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.querySelectorAll('.toggle-password').forEach(item => {
+            item.addEventListener('click', function() {
+                const input = this.previousElementSibling;
+                const icon = this.querySelector('i');
+                if (input.type === 'password') {
+                    input.type = 'text';
+                    icon.classList.remove('fa-eye');
+                    icon.classList.add('fa-eye-slash');
+                } else {
+                    input.type = 'password';
+                    icon.classList.remove('fa-eye-slash');
+                    icon.classList.add('fa-eye');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

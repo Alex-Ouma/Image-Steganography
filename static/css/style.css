@@ -1,0 +1,565 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #00CED1; /* Cyan background from images */
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: auto; /* Ensure content is scrollable if needed */
+}
+
+/* Container for Login and Signup Pages */
+.login-container, .signup-container {
+    text-align: center;
+    background-color: #fff;
+    padding: 70px;
+    border-radius: 30px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 500px; /* Matches the fixed width in images */
+    position: relative;
+}
+
+.shield-image {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px; /* Space below the shield image */
+}
+
+/* Form Container for Split Sections */
+.form-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.sign-in-section, .sign-up-section {
+    width: 48%; /* Approximately half the container width */
+}
+
+h2 {
+    color: #f70909; /* Dark blue header color */
+    margin-bottom: 10px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* Sender Page Specific Styles */
+.sender-container {
+    text-align: center;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    max-width: 800px; /* Slightly wider than login/signup for form content */
+    width: 90%; /* Responsive width */
+    margin: 0 auto; /* Center the container */
+}
+
+body.sender h1 {
+    color: #053463; /* Dark blue */
+    text-align: center;
+    margin: 0 auto 30px; /* Center and add space below */
+    display: block;
+    font-size: 28px; /* Larger font for emphasis */
+    font-weight: bold;
+    width: fit-content; /* Prevents stretching */
+    padding: 10px;
+    background-color: #13e1f0; /* White background */
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+body.sender form {
+    margin: 0 auto; /* Center the form */
+    text-align: left; /* Left-align form elements */
+    max-width: 500px; /* Limit form width */
+    width: 100%; /* Full width up to max-width */
+    padding: 20px;
+    background-color: #1cbde6;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+body.sender label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #34495e; /* Slightly darker text */
+    text-align: left;
+}
+
+body.sender input[type="email"],
+body.sender input[type="text"],
+body.sender input[type="url"],
+body.sender input[type="password"],
+body.sender textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px; /* Increased for better spacing with new fields */
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 14px;
+    background-color: #e0f7fa; /* Light cyan background */
+    outline: none;
+}
+
+body.sender input[type="email"]:focus,
+body.sender input[type="text"]:focus,
+body.sender input[type="url"]:focus,
+body.sender input[type="password"]:focus,
+body.sender textarea:focus {
+    border-color: #3498db; /* Blue border on focus */
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+}
+
+body.sender input[type="file"] {
+    margin-bottom: 20px; /* Match spacing */
+}
+
+body.sender input[type="submit"] {
+    background-color: #3498db; /* Blue submit button */
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+    display: block; /* Ensure button is block-level */
+    margin: 0 auto; /* Center the button */
+}
+
+body.sender input[type="submit"]:hover {
+    background-color: #2980b9; /* Darker blue on hover */
+}
+
+/* Receiver Page Specific Styles */
+.receiver-container {
+    text-align: center;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    max-width: 600px; /* Matches sender for consistency */
+    width: 90%; /* Responsive width */
+    margin: 0 auto; /* Center the container */
+}
+
+body.receiver h1 {
+    color: #2c3e50; /* Dark blue */
+    text-align: center;
+    margin: 0 auto 30px; /* Center and add space below */
+    display: block;
+    font-size: 28px; /* Larger font for emphasis */
+    font-weight: bold;
+    width: fit-content; /* Prevents stretching */
+    padding: 10px;
+    background-color: #159edd; /* White background */
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+body.receiver img {
+    max-width: 100%;
+    height: auto;
+    margin: 20px auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+body.receiver form {
+    margin: 0 auto; /* Center the form */
+    text-align: left; /* Left-align form elements */
+    max-width: 400px; /* Slightly narrower for receiver form */
+    width: 100%; /* Full width up to max-width */
+    padding: 20px;
+    background-color: #f5e50b;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+body.receiver label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #34495e; /* Slightly darker text */
+    text-align: left;
+}
+
+body.receiver input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 14px;
+    background-color: #e0f7fa; /* Light cyan background */
+    outline: none;
+}
+
+body.receiver input[type="password"]:focus {
+    border-color: #3498db; /* Blue border on focus */
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+}
+
+body.receiver input[type="submit"] {
+    background-color: #3498db; /* Blue submit button */
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-right: 10px;
+    transition: background-color 0.3s;
+}
+
+body.receiver input[type="submit"]:hover {
+    background-color: #2980b9; /* Darker blue on hover */
+}
+
+body.receiver button#closeTab {
+    background-color: #e74c3c; /* Red close button */
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+body.receiver button#closeTab:hover {
+    background-color: #c0392b; /* Darker red on hover */
+}
+
+body.receiver h3 {
+    color: #2c3e50; /* Dark blue */
+    margin-top: 20px;
+    margin-bottom: 15px; /* Add spacing below header */
+    text-align: center; /* Center the header for better visual balance */
+    font-size: 20px;
+    font-weight: bold;
+}
+
+body.receiver .content-area {
+    max-width: 500px;
+    margin: 0 auto;
+    text-align: left; /* Keep text left-aligned for readability */
+    background-color: #fff; /* Ensure white background matches container */
+    padding: 20px; /* Add padding for spacing */
+    border-radius: 8px; /* Match form border-radius */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Match shadow */
+}
+
+body.receiver .content-area p {
+    text-align: left;
+    margin: 8px 0; /* Slightly tighter spacing for multiple fields */
+    color: #34495e;
+    font-size: 14px; /* Match input font size */
+}
+
+body.receiver .content-area a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+body.receiver .content-area a:hover {
+    text-decoration: underline;
+}
+
+/* Labels and Inputs (General Styles for Other Pages) */
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #34495e; /* Slightly darker text for labels */
+    text-align: left;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="url"],
+input[type="email"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 14px;
+    background-color: #e0f7fa; /* Light cyan background for inputs */
+    outline: none; /* Remove default outline */
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="url"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+    border-color: #3498db; /* Blue border on focus */
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+}
+
+/* Buttons (General Styles) */
+.sign-in-button, .sign-up-button {
+    background-color: #ff4040; /* Red button color from images */
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+    transition: background-color 0.3s;
+}
+
+.sign-in-button:hover, .sign-up-button:hover {
+    background-color: #cc0000; /* Darker red on hover */
+}
+
+input[type="submit"] {
+    background-color: #3498db; /* Blue submit button for other forms */
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+input[type="submit"]:hover {
+    background-color: #2980b9; /* Darker blue on hover */
+}
+
+/* Links for Sign In and Sign Up */
+.sign-in-section a, .sign-up-section a {
+    color: #fc0b2b; /* Grayish color for links */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.sign-in-section a:hover, .sign-up-section a:hover {
+    text-decoration: underline;
+    color: #666;
+}
+
+/* Terms and Conditions Checkbox */
+.terms-label {
+    display: flex;
+    align-items: center;
+    font-weight: normal;
+    color: #0a58a5;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+input[type="checkbox"] {
+    margin-right: 5px;
+    accent-color: #ffeb3b; /* Yellow checkmark from signup image */
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+input[type="checkbox"]:checked {
+    background-color: #ffeb3b; /* Ensure yellow when checked */
+}
+
+/* File Input (General Styles) */
+input[type="file"] {
+    margin-bottom: 15px;
+}
+
+/* Flash Messages */
+.flash {
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.flash.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.flash.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+/* Styles for Receiver Page (General) */
+form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 20px auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+button#closeTab {
+    background-color: #e74c3c; /* Red close button */
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    display: block;
+    margin: 20px auto;
+    transition: background-color 0.3s;
+}
+
+button#closeTab:hover {
+    background-color: #c0392b; /* Darker red on hover */
+}
+
+h3 {
+    color: #2c3e50;
+    margin-top: 20px;
+}
+
+a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Handwritten Field Styles for Sender Page */
+body.sender .handwritten-field {
+    margin-bottom: 20px; /* Match spacing with other fields */
+}
+
+body.sender .handwritten-label {
+    font-family: sans-serif; /* Or font-family: serif; or font-family: monospace; */
+    font-size: 18px; /* Slightly larger for handwritten effect */
+    color: #040b13; /* Blue ink color to match the image */
+    font-weight: 700; /* Bold to mimic handwritten style */
+    margin-bottom: 5px;
+    display: inline-block; /* Prevent extra spacing */
+}
+
+body.sender .handwritten-input {
+    width: 100%;
+    padding: 8px 10px; /* Slightly less padding for a tighter look */
+    margin-bottom: 0; /* Remove margin-bottom since the wrapper handles spacing */
+    border: 2px solid #0f1214; /* Blue border to match the ink */
+    border-radius: 0; /* Remove rounded corners for a boxy look */
+    box-sizing: border-box;
+    font-size: 14px;
+    background-color: white; /* Remove background to mimic paper */
+    outline: none;
+    font-family: sans-serif; /* Or font-family: serif; or font-family: monospace; */
+    color: #17181a; /* Blue text for user input */
+}
+
+body.sender .handwritten-input::placeholder {
+    font-family: sans-serif; /* Or font-family: serif; or font-family: monospace; */
+    color: #020a13; /* Blue placeholder text */
+    opacity: 0.7; /* Slightly lighter for placeholder */
+    font-size: 14px;
+}
+
+body.sender .handwritten-input:focus {
+    border-color: #09111a; /* Keep blue border on focus */
+    box-shadow: none; /* Remove shadow to maintain the handwritten look */
+}
+
+/* Password Toggle Styles */
+.password-container {
+    position: relative;
+    margin-bottom: 20px; /* Match spacing with other fields */
+}
+
+.password-container input[type="password"],
+.password-container input[type="text"] {
+    padding-right: 40px; /* Make space for the eye icon */
+    margin-bottom: 0; /* Remove default margin since container handles spacing */
+}
+
+.password-container .toggle-password {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #34495e; /* Match label color */
+    font-size: 16px;
+}
+
+.password-container .toggle-password:hover {
+    color: #3498db; /* Blue on hover to match focus color */
+}
+
+/* Responsive Design */
+@media (max-width: 400px) {
+    .login-container, .signup-container {
+        width: 90%; /* Full width on small screens */
+    }
+    .form-container {
+        flex-direction: column;
+    }
+    .sign-in-section, .sign-up-section {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    .sign-in-section {
+        margin-bottom: 0;
+    }
+    .sender-container {
+        width: 95%; /* Full width on small screens */
+    }
+    .receiver-container {
+        width: 95%; /* Full width on small screens */
+    }
+    body.receiver h1 {
+        font-size: 22px; /* Adjust font size for smaller screens */
+    }
+    body.receiver form {
+        width: 100%; /* Full width on small screens */
+        padding: 15px;
+    }
+    body.receiver img {
+        margin: 15px auto; /* Adjust margin on small screens */
+    }
+    body.sender form {
+        padding: 15px; /* Adjust padding on small screens */
+    }
+    body.sender .handwritten-label {
+        font-size: 16px; /* Slightly smaller on mobile */
+    }
+    body.sender .handwritten-input {
+        font-size: 12px; /* Adjust font size for smaller screens */
+    }
+    body.sender .handwritten-input::placeholder {
+        font-size: 12px; /* Adjust placeholder font size */
+    }
+    .password-container .toggle-password {
+        font-size: 14px; /* Slightly smaller on mobile */
+        right: 8px; /* Adjust position for smaller screens */
+    }
+}
