@@ -74,4 +74,4 @@ Security Notes
 PIN Security: The PIN is critical for encryption/decryption. Share it securely with the recipient.
 AES Mode: Uses ECB mode for simplicity; consider CBC mode for enhanced security in production.
 Password Storage: Passwords are hashed with SHA-256 and stored in users.txt.
-File Handling: Uploaded
+File Handling: Uploaded 
